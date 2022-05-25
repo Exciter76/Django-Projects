@@ -1,0 +1,95 @@
+/* Address Book Style Sheet */
+
+#display{
+    
+    /*margin: 6em 4em;*/
+}
+
+img{
+    width: 2em;
+    height: 2em;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th{
+    background-color: #cc6600; 
+    padding: 1em;
+}
+
+td{
+    padding: 0.8em;
+}
+
+tr:nth-child(2n){
+    background-color:  #fcba7a;
+}
+
+tr:nth-child(2n + 1){
+    background-color: #e7e1db;
+}
+
+a{
+    text-decoration: none;
+}
+
+.lastColumn{
+    background-color: white;
+}
+
+textarea, input{
+    width: 100%
+}
+
+#desktop {
+    display: table;
+}
+
+#tablet {
+    display: none;
+}
+
+#mobile{
+    display: none;
+}
+
+/* Tablet devices */
+@media (min-width: 48.1em) and (max-width: 79em)
+{
+
+    /*table properties */
+    #desktop{
+        display: none;
+    }
+    
+    #tablet{
+        display: table;
+    }
+
+    #mobile{
+        display: none;
+    }
+
+}
+
+/* mobile phone display */
+@media only screen and (max-width: 48em ) /* approx. 768px*/
+{
+
+   /*table properties */
+   #desktop{
+       display: none;
+   }
+
+   #tablet{
+       display: none;
+   }
+
+   #mobile{
+       display: table;
+}
+
+
+    

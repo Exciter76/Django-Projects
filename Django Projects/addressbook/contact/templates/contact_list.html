@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+    {% block title %} Contacts {% endblock %}
+{% block content %}
+
+<!-- view for desktop -->
+<table id="desktop">
+    <tr>
+        <!-- for column in contacts.meta.fields -->
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Address 1</th>
+        <th>Address 2</th>
+        <th>E-Mail</th>
+        <th>Phone</th>
+        <th>Mobile</th>
+        <th>Notes</th>
+        <th>Created</th>
+        <th>Owner</th>
+        <th class="lastColumn"><a href="{% url 'contact_new' %}">
+            <img src="{% static 'images/icons8-person-16.png' %}"></a></th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td>{{ contact.first_name }}</td>
+        <td><a href="{% url 'contact_modify' pk=contact.pk %}">{{contact.last_name }}</a></td>
+        <td>{{ contact.address1 }}</td>
+        <td>{{ contact.address2 }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phone_number}}</td>
+        <td>{{ contact.mobile_number }}</td>
+        <td>{{ contact.notes }}</td>
+        <td>{{ contact.created }}</td>
+        <td>{{ contact.owner }}</td>
+        <td class="lastColumn"><a href="{% url 'contact_delete' pk=contact.pk %}">
+            <img src="https://img.icons8.com/plasticine/100/000000/delete.png"></a></td>
+    </tr>
+    {% endfor %}</table>
+
+<!-- view for tablet -->
+<table id="tablet">
+    <tr>
+        <!-- for column in contacts.meta.fields -->
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address 1</th>
+        <th>Address 2</th>
+        <th>E-Mail</th>
+        <th>Phone</th>
+        <th>Mobile</th>
+        <th class="lastColumn"><a href="{% url 'contact_new' %}">
+            <img src="{% static 'images/icons8-person-16.png' %}"></a></th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td>{{ contact.first_name }}</td>
+        <td><a href="{% url 'contact_modify' pk=contact.pk %}">{{contact.last_name }}</a></td>
+        <td>{{ contact.address1 }}</td>
+        <td>{{ contact.address2 }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phone_number}}</td>
+        <td>{{ contact.mobile_number }}</td>
+        <td class="lastColumn"><a href="{% url 'contact_delete' pk=contact.pk %}">
+            <img src="https://img.icons8.com/plasticine/100/000000/delete.png"></a></td>
+    </tr>
+    {% endfor %}</table>
+
+<!-- view for mobile devices -->
+<table id="mobile">
+    <tr>
+        <th>Name</th>
+        <th>E-Mail</th>
+        <th class="lastColumn"><a href="{% url 'contact_new' %}">
+            <img src="{% static 'images/icons8-person-16.png' %}"></a></th>
+    </tr>
+    <tr>{% for contact in contacts %}
+        <td><a href="{% url 'contact_modify' pk=contact.pk %}">{{contact}}</a></td>
+        <td>{{contact.email}}</a></td>
+        <td class="lastColumn"><a href="{% url 'contact_delete' pk=contact.pk %}">
+            <img src="https://img.icons8.com/plasticine/100/000000/delete.png"></a></td></tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+
+
+
